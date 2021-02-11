@@ -27,3 +27,31 @@ unsigned int get_timer_ms(){
 unsigned int get_timer_sec(){
 	return timer_sec;
 }
+
+void wait_ms(unsigned int wait_time_ms){
+	unsigned int start_time = get_timer_ms();
+	// to avoid overflow, wait time is limited under 10000 ms
+	if(wait_time_ms>10000){
+		return;
+	}
+	while(1){
+		if((get_timer_ms() - start_time + 10000)%10000 >= wait_time_ms){
+			return;
+		}
+	}
+	return;
+}
+
+void wait_sec(unsigned int wait_time_sec){
+	unsigned int start_time = get_timer_sec();
+	// to avoid overflow, wait time is limited under 10000 ms
+	if(wait_time_sec>10000){
+		return;
+	}
+	while(1){
+		if((get_timer_sec() - start_time + 10000)%10000 >= wait_time_sec){
+			return;
+		}
+	}
+	return;
+}

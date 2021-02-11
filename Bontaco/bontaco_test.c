@@ -113,12 +113,16 @@ void test_buzzer(){
 		turn_on_debug_led(0);
 		turn_on_buzzer();
 		turn_on_debug_led(1);
-		for(i=0;i<100000;i++);
+		wait_ms(50);
 		turn_on_debug_led(2);
 		turn_off_buzzer();
 		turn_off_debug_led(0);
 		turn_off_debug_led(1);
 		turn_off_debug_led(2);
-		for(i=0;i<10000000;i++);
+		wait_ms(950);
+		turn_on_buzzer();
+		wait_ms(20);
+		turn_off_buzzer();
+		wait_sec(1);
 	}
 }
