@@ -31,14 +31,14 @@ void main(void)
 {
 	init_rx220();
 	
-	check_battery();;
+//	check_battery();;
 	
-	test_debug_led();
-	test_mode_led();
-	test_display();
+//	test_debug_led();
+//	test_mode_led();
+//	test_display();
 //	test_sci();
 //	test_sensor();
-//	test_battery_watch();
+//	test_battery_watch(); 
 //	test_encoder();
 //	test_motor();
 	test_buzzer();

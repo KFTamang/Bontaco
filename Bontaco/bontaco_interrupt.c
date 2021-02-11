@@ -1,6 +1,7 @@
 #include "bontaco_interrupt.h"
 #include "bontaco_photosensor.h"
 #include "bontaco_timer.h"
+#include "bontaco_buzzer.h"
 
 // this fuction is called 20us before mtu3_interruptB
 void mtu3_interruptA(){
@@ -74,6 +75,7 @@ void mtu3_interruptB(){
 	case 7:
 		counter = 0;
 		increment_timer_ms();
+		decrement_buzzer_timer();
 		return;
 	default:
 		break;

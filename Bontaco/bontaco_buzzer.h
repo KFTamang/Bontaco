@@ -6,5 +6,7 @@
 void toggle_buzzer();
 void turn_on_buzzer();
 void turn_off_buzzer();
+void decrement_buzzer_timer();
+void ring_buzzer_for_ms(unsigned int time_ms);
 
 #endif

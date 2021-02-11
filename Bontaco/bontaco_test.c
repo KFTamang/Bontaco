@@ -109,20 +109,13 @@ void test_motor(){
 
 void test_buzzer(){
 	int m;
-	for(m=0;m<100;m++){
+	for(m=0;m<50;m++){
 		turn_on_debug_led(0);
-		turn_on_buzzer();
+		ring_buzzer_for_ms(10);
 		turn_on_debug_led(1);
-		wait_ms(50);
-		turn_on_debug_led(2);
-		turn_off_buzzer();
+		wait_ms(500);
+		wait_sec(1);
 		turn_off_debug_led(0);
 		turn_off_debug_led(1);
-		turn_off_debug_led(2);
-		wait_ms(950);
-		turn_on_buzzer();
-		wait_ms(20);
-		turn_off_buzzer();
-		wait_sec(1);
 	}
 }
