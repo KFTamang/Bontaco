@@ -108,7 +108,7 @@ void test_motor(){
 }
 
 void test_buzzer(){
-	int i,m;
+	int m;
 	for(m=0;m<100;m++){
 		turn_on_debug_led(0);
 		turn_on_buzzer();
