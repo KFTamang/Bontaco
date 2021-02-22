@@ -36,7 +36,7 @@
 "{2BA6A3EF-6488-11D5-80D4-00C04F68EAD7}StatusWnd0ColWidth0" "224" 
 "{2BA6A3EF-6488-11D5-80D4-00C04F68EAD7}StatusWnd0ColWidth1" "232" 
 "{2BA6A3EF-6488-11D5-80D4-00C04F68EAD7}StatusWnd0ScrollHorz" "0" 
-"{2BA6A3EF-6488-11D5-80D4-00C04F68EAD7}StatusWnd0ScrollVert" "7" 
+"{2BA6A3EF-6488-11D5-80D4-00C04F68EAD7}StatusWnd0ScrollVert" "0" 
 "{2BA6A3EF-6488-11D5-80D4-00C04F68EAD7}StatusWnd1ColWidth0" "152" 
 "{2BA6A3EF-6488-11D5-80D4-00C04F68EAD7}StatusWnd1ColWidth1" "320" 
 "{2BA6A3EF-6488-11D5-80D4-00C04F68EAD7}StatusWnd1ScrollHorz" "0" 
@@ -305,6 +305,7 @@
 [WINDOW_POSITION_STATE_DATA_VD3]
 [WINDOW_POSITION_STATE_DATA_VD4]
 [WINDOW_Z_ORDER]
+"C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\bontaco_drive.h" 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\bontaco_buzzer.c" 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\Bontaco.c" 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\bontaco_test.h" 

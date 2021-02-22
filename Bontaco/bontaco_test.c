@@ -94,13 +94,15 @@ void test_encoder(){
 }
 
 void test_motor(){
-	int i;
 	turn_on_debug_led(0);
-	motor_ready();
 	turn_on_debug_led(1);
-	for(i=0;i<100000000;i++);
+
+	run_straight();
+
+	wait_sec(5);
 	turn_on_debug_led(2);
-	motor_standby();
+
+	disable_motors();
 	turn_off_debug_led(0);
 	turn_off_debug_led(1);
 	turn_off_debug_led(2);

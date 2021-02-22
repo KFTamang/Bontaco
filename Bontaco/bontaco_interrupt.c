@@ -2,6 +2,7 @@
 #include "bontaco_photosensor.h"
 #include "bontaco_timer.h"
 #include "bontaco_buzzer.h"
+#include "bontaco_drive.h"
 
 // this fuction is called 20us before mtu3_interruptB
 void mtu3_interruptA(){
@@ -67,8 +68,10 @@ void mtu3_interruptB(){
 		turn_off_wall_led(counter);
 		break;
 	case 4:
+		pid_control_motor_left();
 		break;
 	case 5:
+		pid_control_motor_right();
 		break;
 	case 6:
 		break;

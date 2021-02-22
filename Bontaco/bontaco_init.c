@@ -147,9 +147,9 @@ void init_rx220(){
 	// PWM frequency to 100kHz by setting TGRB
 	MTU4.TGRB = 320;
 	MTU4.TGRD = 320;
-	// initial values ofTGRA and TGRC to 160, duty ratio of 10%
-	MTU4.TGRA = 320-32;
-	MTU4.TGRC = 320-32;
+	// initial values ofTGRA and TGRC to 0
+	MTU4.TGRA = 0;
+	MTU4.TGRC = 0;
 	
 	// MTU0 for buzzer
 	// timer priscaler, clock divided by 16
