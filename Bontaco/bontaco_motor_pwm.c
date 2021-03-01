@@ -31,8 +31,8 @@ void set_motor_direction_right(RotationDirection dir){
 
 void disable_motors(){
 	// when MOTOR_PWM_R/L is PWM_MAX, motor rotation is lowest
-	MOTOR_PWM_R = PWM_MAX;
-	MOTOR_PWM_L = PWM_MAX;
+	MOTOR_PWM_R = PWM_MAX + 1;
+	MOTOR_PWM_L = PWM_MAX + 1;
 	
 	MOTOR_IN1_R = 0;
 	MOTOR_IN2_R = 0;
@@ -51,16 +51,17 @@ void enable_motors(){
 void set_duty_ratio(Motor motor, float duty_ratio){
 	if(duty_ratio > 1.0){
 		duty_ratio = 1.0;
+	}else if(duty_ratio < 0){
+		duty_ratio = 0;
 	}
 	switch(motor){
 		case RIGHT:
-			MOTOR_PWM_R = (unsigned int)(PWM_MAX - duty_ratio*PWM_MAX);
+			MOTOR_PWM_R = (unsigned int)(PWM_MAX + 1 - duty_ratio*PWM_MAX);
 			break;
 		case LEFT:
-			MOTOR_PWM_L = (unsigned int)(PWM_MAX - duty_ratio*PWM_MAX);
+			MOTOR_PWM_L = (unsigned int)(PWM_MAX + 1 - duty_ratio*PWM_MAX);
 			break;
 		default:
 			break;
 	}
 }
-

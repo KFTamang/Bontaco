@@ -148,8 +148,8 @@ void init_rx220(){
 	MTU4.TGRB = 320;
 	MTU4.TGRD = 320;
 	// initial values ofTGRA and TGRC to 0
-	MTU4.TGRA = 0;
-	MTU4.TGRC = 0;
+	MTU4.TGRA = 321;
+	MTU4.TGRC = 321;
 	
 	// MTU0 for buzzer
 	// timer priscaler, clock divided by 16

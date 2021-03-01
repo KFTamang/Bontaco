@@ -85,10 +85,11 @@ void test_battery_watch(){
 }
 
 void test_encoder(){
-	int i,m;
+	int i;
 	for(i=0;i<1000;i++){
-		sci_printf("Encoder:%u\r\n", get_encoder_count(RIGHT));
-		for(m=0;m<1000000;m++);
+		sci_printf("Encoder right:%d\r\n", get_encoder_diff(RIGHT));
+		sci_printf("Encoder left:%d\r\n", get_encoder_diff(LEFT));
+		wait_ms(100);
 	}	
 	
 }

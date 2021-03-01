@@ -68,12 +68,14 @@ void mtu3_interruptB(){
 		turn_off_wall_led(counter);
 		break;
 	case 4:
-		pid_control_motor_left();
+		update_encoder_diff(LEFT);
+		update_encoder_diff(RIGHT);
 		break;
 	case 5:
-		pid_control_motor_right();
+		pid_control_motor_left();
 		break;
 	case 6:
+		pid_control_motor_right();
 		break;
 	case 7:
 		counter = 0;
