@@ -1,4 +1,5 @@
 #include "bontaco_drive.h"
+#include "bontaco_led.h"
 
 #define VELOCITY_LOW (200) // [mm/sec], speed of exploration
 #define VELOCITY_MIDDLE (1000) // [mm/sec], speed of exploration
@@ -11,7 +12,7 @@ static float target_speed_left = 0;
 static float target_speed_right = 0;
 
 void run_straight(){
-    set_target_speed(VELOCITY_LOW);
+    set_target_speed(VELOCITY_MIDDLE);
     enable_motors();
 }
 
@@ -22,22 +23,22 @@ void set_target_speed(float target_speed){
 
 void pid_control_motor_left(){
     static float current_duty_ratio_left = 0.0;
-    // float speed_current = get_encoder_diff(LEFT) * mm_PER_COUNT / PERIOD;
-    // float speed_residue = speed_current - target_speed_left;
-    // float pid_duty_ratio = speed_residue * Kp; 
+    float speed_current = get_encoder_diff(LEFT) * mm_PER_COUNT / PERIOD;
+    float speed_residue = target_speed_left - speed_current;
+    float pid_duty_ratio = speed_residue * Kp; 
 
     float target_duty_ratio = mV_PER_VELOCITY * VELOCITY_MIDDLE / measure_battery_voltage();
-    current_duty_ratio_left = target_duty_ratio;
+    current_duty_ratio_left = target_duty_ratio + pid_duty_ratio;
     set_duty_ratio(LEFT, current_duty_ratio_left);
 }
 
 void pid_control_motor_right(){
     static float current_duty_ratio_right = 0.0;
-    // float speed_current = get_encoder_diff(RIGHT) * mm_PER_COUNT / PERIOD;
-    // float speed_residue = speed_current - target_speed_right;
-    // float pid_duty_ratio = speed_residue * Kp;
+    float speed_current = get_encoder_diff(RIGHT) * mm_PER_COUNT / PERIOD;
+    float speed_residue = target_speed_right - speed_current;
+    float pid_duty_ratio = speed_residue * Kp;
 
     float target_duty_ratio = mV_PER_VELOCITY * VELOCITY_MIDDLE / measure_battery_voltage();
-    current_duty_ratio_right = target_duty_ratio;
+    current_duty_ratio_right = target_duty_ratio + pid_duty_ratio;
     set_duty_ratio(RIGHT, current_duty_ratio_right);
 }
