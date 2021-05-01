@@ -11,6 +11,26 @@
 static float target_speed_left = 0;
 static float target_speed_right = 0;
 
+void run_stright_with_length(int length_mm){
+    long current_count = 0;
+    reset_encoder_accumulated_count();
+    current_count = (get_encoder_accumulated_count(RIGHT) + get_encoder_accumulated_count(LEFT))/2;
+    run_straight();
+    ring_buzzer_for_ms(20);
+    // loop until the mouse runs for desired length
+    while(current_count * mm_PER_COUNT < length_mm){
+        current_count = (get_encoder_accumulated_count(RIGHT) + get_encoder_accumulated_count(LEFT))/2;
+        wait_ms(100);
+    }
+    ring_buzzer_for_ms(20);
+    brake();
+}
+
+void brake(){
+    set_target_speed(0);
+    enable_motors();
+}
+
 void run_straight(){
     set_target_speed(VELOCITY_MIDDLE);
     enable_motors();

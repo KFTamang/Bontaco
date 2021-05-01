@@ -89,6 +89,8 @@ void test_encoder(){
 	for(i=0;i<1000;i++){
 		sci_printf("Encoder right:%d\r\n", get_encoder_diff(RIGHT));
 		sci_printf("Encoder left:%d\r\n", get_encoder_diff(LEFT));
+		sci_printf("Encoder accumulate right:%l\r\n", get_encoder_accumulated_count(RIGHT));
+		sci_printf("Encoder accumulate left:%l\r\n", get_encoder_accumulated_count(LEFT));
 		wait_ms(100);
 	}	
 	
@@ -108,6 +110,17 @@ void test_motor(){
 	turn_off_debug_led(1);
 	turn_off_debug_led(2);
 
+}
+
+void test_run(){
+	ring_buzzer_for_ms(30);
+	wait_ms(500);
+	ring_buzzer_for_ms(30);
+	wait_ms(500);
+	ring_buzzer_for_ms(30);
+	wait_ms(500);
+	ring_buzzer_for_ms(30);
+ 	run_stright_with_length(1000);
 }
 
 void test_buzzer(){

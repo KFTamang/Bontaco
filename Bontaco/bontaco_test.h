@@ -18,6 +18,7 @@ void test_sensor();
 void test_battery_watch();
 void test_encoder();
 void test_motor();
+void test_run();
 void test_buzzer();
 
 #endif
