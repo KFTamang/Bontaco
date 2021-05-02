@@ -51,7 +51,18 @@ void enable_motors(){
 void set_duty_ratio(Motor motor, float duty_ratio){
 	if(duty_ratio > 1.0){
 		duty_ratio = 1.0;
+		// if(motor == LEFT){
+		// 	set_motor_direction_left(FORWARD);
+		// }else if(motor == RIGHT){
+		// 	set_motor_direction_right(FORWARD);
+		// }
 	}else if(duty_ratio < 0){
+		// duty_ratio = -duty_ratio;
+		// if(motor == LEFT){
+		// 	set_motor_direction_left(BACKWARD);
+		// }else if(motor == RIGHT){
+		// 	set_motor_direction_right(BACKWARD);
+		// }
 		duty_ratio = 0;
 	}
 	switch(motor){

@@ -72,15 +72,16 @@ void mtu3_interruptB(){
 		update_encoder_diff(RIGHT);
 		break;
 	case 5:
-		pid_control_motor_left();
+		pid_control_velocity();
 		break;
 	case 6:
-		pid_control_motor_right();
+		pid_control_angular_velocity();
 		break;
 	case 7:
 		counter = 0;
 		increment_timer_ms();
 		decrement_buzzer_timer();
+		set_motor_duty_ratios();
 		return;
 	default:
 		break;
