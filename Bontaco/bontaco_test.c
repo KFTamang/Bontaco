@@ -113,14 +113,14 @@ void test_motor(){
 }
 
 void test_run(){
-	ring_buzzer_for_ms(30);
+	ring_buzzer_for_ms(10);
 	wait_ms(500);
-	ring_buzzer_for_ms(30);
+	ring_buzzer_for_ms(10);
 	wait_ms(500);
-	ring_buzzer_for_ms(30);
+	ring_buzzer_for_ms(10);
 	wait_ms(500);
-	ring_buzzer_for_ms(30);
- 	run_stright_with_length(1000);
+	ring_buzzer_for_ms(10);
+ 	run_straight_with_length(1000);
 }
 
 void test_buzzer(){

@@ -6,11 +6,13 @@
 #define VELOCITY_MIDDLE (1000) // [mm/sec], speed of exploration
 #define mV_PER_VELOCITY (60.0*0.470/(8.0/30.0)/Pi/25.0) //1.34649 [mV / (mm/sec)]
 #define mV_PER_ANGULAR_V (mV_PER_VELOCITY*75.0*Pi/180.0) // 1.7625 [mV / (deg/sec)]
-#define mm_PER_COUNT (25.0*Pi/30.0*8.0/1024) // distance per encoder count in mm
-#define deg_PER_COUNT (mm_PER_COUNT*180.0/Pi/75.0) // degree per encoder count difference (i.e. LEFT - RIGHT)
+#define mm_PER_COUNT_RIGHT (25.0*Pi/30.0*8.0/1024) // distance per encoder count in mm
+#define mm_PER_COUNT_LEFT (25.0*Pi/30.0*8.0/1024*3.0/2.0) // distance per encoder count in mm
+#define deg_PER_COUNT_RIGHT (mm_PER_COUNT_RIGHT*180.0/Pi/75.0) // degree per encoder count difference (i.e. LEFT - RIGHT)
+#define deg_PER_COUNT_LEFT (mm_PER_COUNT_LEFT*180.0/Pi/75.0) // degree per encoder count difference (i.e. LEFT - RIGHT)
 #define PERIOD (0.001) // time period of drive control, 1ms
-#define Kp_V (0.0001 ) // velocity coefficient for P control
-#define Kp_AV (0.0001 ) // angular velocity coefficient for P control
+#define Kp_V (0.001 ) // velocity coefficient for P control
+#define Kp_AV (0.002 ) // angular velocity coefficient for P control
 
 static float target_velocity = 0;
 static float target_angular_velocity = 0;
@@ -19,32 +21,46 @@ static float dutyratio_av = 0;
 
 static float get_velocity(void)
 {
-    unsigned int ave_count = (get_encoder_diff(RIGHT) + get_encoder_diff(LEFT))/2;
-    float velocity = mm_PER_COUNT * ave_count / PERIOD;
+    int count_right = get_encoder_diff(RIGHT);
+    int count_left  = get_encoder_diff(LEFT);
+    float velocity = (mm_PER_COUNT_RIGHT * count_right + mm_PER_COUNT_LEFT * count_left) / 2 / PERIOD;
     return velocity;
 }
 
 // angular velocity, + for clockwise, - for counter-clockwise
 static float get_angular_velocity(void)
 {
-    int diff_count = get_encoder_diff(LEFT) - get_encoder_diff(RIGHT);
-    float angular_velocity = deg_PER_COUNT * diff_count / PERIOD;
+    int count_right = get_encoder_diff(RIGHT);
+    int count_left  = get_encoder_diff(LEFT);
+    float angular_velocity = (deg_PER_COUNT_LEFT * count_left - deg_PER_COUNT_RIGHT * count_right) / PERIOD;
     return angular_velocity;
 }
 
-void run_stright_with_length(int length_mm)
+float get_path_length(void)
 {
-    long current_count = 0;
+    long count_right = get_encoder_accumulated_count(RIGHT);
+    long count_left = get_encoder_accumulated_count(LEFT);
+    float path_length = 0;
+    path_length = count_right * mm_PER_COUNT_RIGHT + count_left * mm_PER_COUNT_LEFT;
+    path_length /= 2.0;
+    return path_length;
+}
+
+static void reset_path_length(void)
+{
     reset_encoder_accumulated_count();
-    current_count = (get_encoder_accumulated_count(RIGHT) + get_encoder_accumulated_count(LEFT))/2;
-    // run_straight();
-    ring_buzzer_for_ms(20);
+}
+
+void run_straight_with_length(int length_mm)
+{
+    reset_path_length();
+    run_straight();
+    ring_buzzer_for_ms(10);
     // loop until the mouse runs for desired length
-    while(current_count * mm_PER_COUNT < length_mm){
-        current_count = (get_encoder_accumulated_count(RIGHT) + get_encoder_accumulated_count(LEFT))/2;
+    while( get_path_length() < length_mm ){
         wait_ms(100);
     }
-    ring_buzzer_for_ms(20);
+    ring_buzzer_for_ms(10);
     brake();
 }
 
@@ -56,7 +72,7 @@ void brake(void)
 
 void run_straight(void)
 {
-    set_target_velocity(VELOCITY_MIDDLE);
+    set_target_velocity(VELOCITY_LOW);
     enable_motors();
 }
 
