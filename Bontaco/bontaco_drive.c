@@ -6,13 +6,16 @@
 #define VELOCITY_MIDDLE (1000) // [mm/sec], speed of exploration
 #define mV_PER_VELOCITY (60.0*0.470/(8.0/30.0)/Pi/25.0) //1.34649 [mV / (mm/sec)]
 #define mV_PER_ANGULAR_V (mV_PER_VELOCITY*75.0*Pi/180.0) // 1.7625 [mV / (deg/sec)]
-#define mm_PER_COUNT_RIGHT (25.0*Pi/30.0*8.0/1024) // distance per encoder count in mm
-#define mm_PER_COUNT_LEFT (25.0*Pi/30.0*8.0/1024*3.0/2.0) // distance per encoder count in mm
+// #define mm_PER_COUNT_RIGHT (26.0*Pi/30.0*8.0/1024) // distance per encoder count in mm
+#define mm_PER_COUNT_RIGHT (1000.0/46738.5) // distance per encoder count in mm based on mesurement 
+// #define mm_PER_COUNT_LEFT (26.0*Pi/30.0*8.0/1024*1.32) // distance per encoder count in mm 
+#define mm_PER_COUNT_LEFT (1000.0/34634.5) // distance per encoder count in mm based on mesurement 
 #define deg_PER_COUNT_RIGHT (mm_PER_COUNT_RIGHT*180.0/Pi/75.0) // degree per encoder count difference (i.e. LEFT - RIGHT)
 #define deg_PER_COUNT_LEFT (mm_PER_COUNT_LEFT*180.0/Pi/75.0) // degree per encoder count difference (i.e. LEFT - RIGHT)
 #define PERIOD (0.001) // time period of drive control, 1ms
 #define Kp_V (0.001 ) // velocity coefficient for P control
-#define Kp_AV (0.002 ) // angular velocity coefficient for P control
+#define Kp_AV  (0.001 ) // angular velocity coefficient for P control
+#define Ki_AV  (0.0008 ) // angular velocity coefficient for I control
 
 static float target_velocity = 0;
 static float target_angular_velocity = 0;
@@ -58,7 +61,7 @@ void run_straight_with_length(int length_mm)
     ring_buzzer_for_ms(10);
     // loop until the mouse runs for desired length
     while( get_path_length() < length_mm ){
-        wait_ms(100);
+        wait_ms(20);
     }
     ring_buzzer_for_ms(10);
     brake();
@@ -104,7 +107,15 @@ void pid_control_angular_velocity(void)
     float target_duty_ratio = mV_PER_ANGULAR_V * target_angular_velocity / measure_battery_voltage();
     float current_av = get_angular_velocity();
     float residue_av = target_angular_velocity - current_av;
-    float pid_duty_ratio = residue_av * Kp_AV; 
+    static float integral_av = 0;
+    float pid_duty_ratio = 0;
+    // Integral
+    integral_av += residue_av;
+    // Differencial
+    differencial_av = current_av - prev_av;
+    // PID output
+    pid_duty_ratio = residue_av * Kp_AV;
+    pid_duty_ratio += integral_av * Ki_AV;
 
     dutyratio_av = target_duty_ratio + pid_duty_ratio;
 }
