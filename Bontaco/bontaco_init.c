@@ -162,8 +162,8 @@ void init_rx220(){
 	MTU0.TMDR.BIT.MD = 0x0;
 	// interrupt permission for TGRB, timer is cleared with TGRB match
 	MTU0.TIER.BIT.TGIEB = 1;
-	// compare match at 2*2700Hz with 32MHz clock devided by 16
-	MTU0.TGRB = 32000/16*10/27/2-1; // 32000/16/8-1
+	// compare match at 2*4000Hz with 32MHz clock devided by 16
+	MTU0.TGRB = 32000/16*10/40/2-1; // 32000/16/8-1
 
 	// permit interrupt by TGRB
 	IEN(MTU0, TGIB0) = 1;
