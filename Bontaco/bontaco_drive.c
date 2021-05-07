@@ -55,10 +55,28 @@ static void reset_path_length(void)
     reset_encoder_accumulated_count();
 }
 
+void brake(void)
+{
+    set_target_velocity(0);
+    enable_motors();
+}
+
+void run_straight_with_constant_acceleration(int velocity_mm_per_sec)
+{
+    int i;
+    set_target_velocity(0);
+    enable_motors();
+    for(i = 0;i<velocity_mm_per_sec;i++){
+        set_target_velocity(i);
+        wait_ms(1);
+    }
+}
+
 void run_straight_with_length(int length_mm)
 {
     reset_path_length();
-    run_straight();
+    // run_straight();
+    run_straight_with_constant_acceleration(VELOCITY_LOW);
     ring_buzzer_for_ms(10);
     // loop until the mouse runs for desired length
     while( get_path_length() < length_mm ){
@@ -66,12 +84,6 @@ void run_straight_with_length(int length_mm)
     }
     ring_buzzer_for_ms(10);
     brake();
-}
-
-void brake(void)
-{
-    set_target_velocity(0);
-    enable_motors();
 }
 
 void run_straight(void)
