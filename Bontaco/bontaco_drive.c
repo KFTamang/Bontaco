@@ -7,16 +7,16 @@
 #define mV_PER_VELOCITY (60.0*0.470/(8.0/30.0)/Pi/25.0) //1.34649 [mV / (mm/sec)]
 #define mV_PER_ANGULAR_V (mV_PER_VELOCITY*75.0*Pi/180.0) // 1.7625 [mV / (deg/sec)]
 // #define mm_PER_COUNT_RIGHT (26.0*Pi/30.0*8.0/1024) // distance per encoder count in mm
-#define mm_PER_COUNT_RIGHT (1000.0/46428.0) // distance per encoder count in mm based on mesurement 
+#define mm_PER_COUNT_RIGHT (1000.0/46262.0) // distance per encoder count in mm based on mesurement 
 // #define mm_PER_COUNT_LEFT (26.0*Pi/30.0*8.0/1024*1.32) // distance per encoder count in mm 
-#define mm_PER_COUNT_LEFT (1000.0/34398.0) // distance per encoder count in mm based on mesurement 
+#define mm_PER_COUNT_LEFT (1000.0/34201.0) // distance per encoder count in mm based on mesurement 
 #define deg_PER_COUNT_RIGHT (mm_PER_COUNT_RIGHT*180.0/Pi/75.0) // degree per encoder count difference (i.e. LEFT - RIGHT)
 #define deg_PER_COUNT_LEFT (mm_PER_COUNT_LEFT*180.0/Pi/75.0) // degree per encoder count difference (i.e. LEFT - RIGHT)
 #define PERIOD (0.001) // time period of drive control, 1ms
 #define Kp_V (0.001 ) // velocity coefficient for P control
 #define Ki_V (0.001 ) // velocity coefficient for I control
-#define Kp_AV  (0.001 ) // angular velocity coefficient for P control
-#define Ki_AV  (0.0008 ) // angular velocity coefficient for I control
+#define Kp_AV  (0.0001 ) // angular velocity coefficient for P control
+#define Ki_AV  (0.0005 ) // angular velocity coefficient for I control
 
 static float target_velocity = 0;
 static float target_angular_velocity = 0;
@@ -76,7 +76,7 @@ void run_straight_with_length(int length_mm)
 {
     reset_path_length();
     // run_straight();
-    run_straight_with_constant_acceleration(VELOCITY_LOW);
+    run_straight_with_constant_acceleration(VELOCITY_MIDDLE);
     ring_buzzer_for_ms(10);
     // loop until the mouse runs for desired length
     while( get_path_length() < length_mm ){
