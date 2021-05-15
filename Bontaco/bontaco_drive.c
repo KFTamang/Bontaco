@@ -16,12 +16,14 @@
 #define Kp_V (0.001 ) // velocity coefficient for P control
 #define Ki_V (0.001 ) // velocity coefficient for I control
 #define Kp_AV  (0.0001 ) // angular velocity coefficient for P control
-#define Ki_AV  (0.0005 ) // angular velocity coefficient for I control
+#define Ki_AV  (0.001 ) // angular velocity coefficient for I control
 
 static float target_velocity = 0;
 static float target_angular_velocity = 0;
 static float dutyratio_v = 0;
 static float dutyratio_av = 0;
+static float integral_velocity = 0;
+static float integral_av = 0;
 
 static float get_velocity(void)
 {
@@ -40,13 +42,13 @@ static float get_angular_velocity(void)
     return angular_velocity;
 }
 
-float get_path_length(void)
+long get_path_length(void)
 {
     long count_right = get_encoder_accumulated_count(RIGHT);
     long count_left = get_encoder_accumulated_count(LEFT);
-    float path_length = 0;
+    long path_length = 0;
     path_length = count_right * mm_PER_COUNT_RIGHT + count_left * mm_PER_COUNT_LEFT;
-    path_length /= 2.0;
+    path_length /= 2;
     return path_length;
 }
 
@@ -55,9 +57,19 @@ static void reset_path_length(void)
     reset_encoder_accumulated_count();
 }
 
+static void reset_velocity_parameters(void)
+{
+    dutyratio_v = 0;
+    dutyratio_av = 0;
+    integral_velocity = 0;
+    integral_av = 0;
+}
+
 void brake(void)
 {
+    reset_velocity_parameters();
     set_target_velocity(0);
+    set_target_angular_velocity(0);
     enable_motors();
 }
 
@@ -70,6 +82,23 @@ void run_straight_with_constant_acceleration(int velocity_mm_per_sec)
         set_target_velocity(i);
         wait_ms(1);
     }
+}
+
+void turn_90_degree(unsigned int radius_mm, Direction dir){
+    float duration_ms = 1000.0 * radius_mm * Pi / 2 / VELOCITY_LOW;
+    float _target_av = 90.0 * 1000.0 / duration_ms;
+    set_target_velocity(VELOCITY_LOW);
+    if(dir == CW){
+        set_target_angular_velocity(_target_av);
+        enable_motors();
+      }else if(dir == CCW){
+        set_target_angular_velocity(-_target_av);
+        enable_motors();
+    }else{
+        // do nothing
+    }
+    wait_sec((int)duration_ms / 1000);
+    wait_ms((int)duration_ms % 1000);
 }
 
 void run_straight_with_length(int length_mm)
@@ -97,6 +126,11 @@ void set_target_velocity(float _target_velocity)
     target_velocity = _target_velocity;
 }
 
+void set_target_angular_velocity(float _target_a_velocity)
+{
+    target_angular_velocity = _target_a_velocity;
+}
+
 void set_motor_duty_ratios(void)
 {
     float dutyratio_left = dutyratio_v + dutyratio_av/2;
@@ -110,7 +144,6 @@ void pid_control_velocity(void)
     float target_duty_ratio = mV_PER_VELOCITY * target_velocity / measure_battery_voltage();
     float current_velocity = get_velocity();
     float residue_velocity = target_velocity - current_velocity;
-    static float integral_velocity = 0;
     float pid_duty_ratio = 0;
     // Integral
     integral_velocity += residue_velocity;
@@ -126,7 +159,6 @@ void pid_control_angular_velocity(void)
     float target_duty_ratio = mV_PER_ANGULAR_V * target_angular_velocity / measure_battery_voltage();
     float current_av = get_angular_velocity();
     float residue_av = target_angular_velocity - current_av;
-    static float integral_av = 0;
     float pid_duty_ratio = 0;
     // Integral
     integral_av += residue_av;

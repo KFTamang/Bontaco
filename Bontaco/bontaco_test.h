@@ -20,5 +20,6 @@ void test_encoder();
 void test_motor();
 void test_run();
 void test_buzzer();
+void test_turn();
 
 #endif

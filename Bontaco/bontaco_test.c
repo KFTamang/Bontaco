@@ -123,6 +123,23 @@ void test_run(){
  	run_straight_with_length(1000);
 }
 
+void test_turn(){
+	ring_buzzer_for_ms(10);
+	wait_ms(500);
+	ring_buzzer_for_ms(10);
+	wait_ms(500);
+	ring_buzzer_for_ms(10);
+	wait_ms(500);
+	ring_buzzer_for_ms(10);
+	turn_90_degree(100, CW);
+	ring_buzzer_for_ms(10);
+	turn_90_degree(200, CCW);
+	ring_buzzer_for_ms(10);
+	turn_90_degree(300, CCW);
+	ring_buzzer_for_ms(10);
+	brake();
+}
+
 void test_buzzer(){
 	int m;
 	for(m=0;m<50;m++){

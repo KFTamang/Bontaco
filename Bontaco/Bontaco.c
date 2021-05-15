@@ -53,7 +53,8 @@ void main(void)
 	// test_battery_watch(); 
 	// test_encoder();
 	// test_motor();
-	test_run();
+	// test_run();
+	test_turn();
 
 
 

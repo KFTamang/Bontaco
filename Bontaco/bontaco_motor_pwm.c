@@ -67,10 +67,10 @@ void set_duty_ratio(Motor motor, float duty_ratio){
 	}
 	switch(motor){
 		case RIGHT:
-			MOTOR_PWM_R = (unsigned int)(PWM_MAX + 1 - duty_ratio*PWM_MAX);
+			MOTOR_PWM_R = (unsigned int)(PWM_MAX + 1 - duty_ratio * PWM_MAX);
 			break;
 		case LEFT:
-			MOTOR_PWM_L = (unsigned int)(PWM_MAX + 1 - duty_ratio*PWM_MAX);
+			MOTOR_PWM_L = (unsigned int)(PWM_MAX + 1 - duty_ratio * PWM_MAX);
 			break;
 		default:
 			break;
