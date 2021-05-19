@@ -10,9 +10,7 @@
 /*                                                                     */
 /***********************************************************************/
                   
-#include "bontaco_init.h"
-#include "bontaco_led.h"
-#include "bontaco_test.h"
+#include "bontaco_main.h"
 
 //#include "typedefine.h"
 #ifdef __cplusplus
@@ -30,38 +28,9 @@ void abort(void);
 void main(void)
 {
 	init_rx220();
-
-	turn_off_debug_led(0);
-	turn_off_debug_led(1);
-	turn_off_debug_led(2);
-	turn_off_mode_led(0);	
-	turn_off_mode_led(1);	
-
-	display_7seg(10);
-
-	// necessary to avoid weird rotation of left motor on enabling
-	reset_encoder_count(LEFT);
-	reset_encoder_count(RIGHT);
-
-	check_battery();
 	
-	// test_debug_led();
-	// test_mode_led();
-	// test_display();
-	// test_sci();
-	// test_sensor();
-	// test_battery_watch(); 
-	// test_encoder();
-	// test_motor();
-	// test_run();
-	test_turn();
+	Main();
 
-
-
-
-
-	// test_buzzer();
-	
 	while(1);
 
 }

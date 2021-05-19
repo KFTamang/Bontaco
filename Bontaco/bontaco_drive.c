@@ -25,6 +25,57 @@ static float dutyratio_av = 0;
 static float integral_velocity = 0;
 static float integral_av = 0;
 
+
+long get_path_length(void);
+
+struct Motion{
+    unsigned int current_time_ms;
+	unsigned int duration_ms;
+	float acceralation;
+	float ang_acceralation;
+	long path_length;
+	float initial_velocity;
+	float initial_ang_velocity;
+};
+
+struct Motion current_motion = {0,0,0,0,0,0};
+
+struct Motion createMotion(
+	unsigned int _duration_ms,
+	float _acceralation,
+	float _ang_acceralation,
+	long _path_length,
+	float _initial_velocity,
+	float _initial_ang_velocity)
+{
+    struct Motion new;
+    new.current_time_ms      = 0;
+	new.duration_ms          = _duration_ms;
+	new.acceralation         = _acceralation;
+	new.ang_acceralation     = _ang_acceralation;
+	new.path_length          = _path_length;
+	new.initial_velocity     = _initial_velocity;
+	new.initial_ang_velocity = _initial_ang_velocity;
+    return new;
+}
+
+int isEndOfMotion(void)
+{
+    return (current_motion.current_time_ms >= current_motion.duration_ms || current_motion.path_length <= get_path_length());
+}
+
+void execute_current_motion(void)
+{
+    if(current_motion.current_time_ms == 0){
+        target_velocity = current_motion.initial_velocity;
+        target_angular_velocity = current_motion.initial_ang_velocity;
+    }else{
+        target_velocity += current_motion.acceralation;
+        target_angular_velocity += current_motion.ang_acceralation;
+    }
+    current_motion.current_time_ms++;
+}
+
 static float get_velocity(void)
 {
     int count_right = get_encoder_diff(RIGHT);
@@ -75,49 +126,29 @@ void brake(void)
 
 void run_straight_with_constant_acceleration(int velocity_mm_per_sec)
 {
-    int i;
-    set_target_velocity(0);
     enable_motors();
-    for(i = 0;i<velocity_mm_per_sec;i++){
-        set_target_velocity(i);
-        wait_ms(1);
-    }
 }
 
 void turn_90_degree(unsigned int radius_mm, Direction dir){
     float duration_ms = 1000.0 * radius_mm * Pi / 2 / VELOCITY_LOW;
     float _target_av = 90.0 * 1000.0 / duration_ms;
-    set_target_velocity(VELOCITY_LOW);
-    if(dir == CW){
-        set_target_angular_velocity(_target_av);
-        enable_motors();
-      }else if(dir == CCW){
-        set_target_angular_velocity(-_target_av);
-        enable_motors();
-    }else{
-        // do nothing
+    int length_mm = radius_mm * Pi / 2;
+    if(dir == CCW){
+        _target_av *= -1;
     }
-    wait_sec((int)duration_ms / 1000);
-    wait_ms((int)duration_ms % 1000);
+    current_motion = createMotion(10000, 0, 0, length_mm, VELOCITY_LOW, _target_av);
 }
 
 void run_straight_with_length(int length_mm)
 {
     reset_path_length();
-    // run_straight();
-    run_straight_with_constant_acceleration(VELOCITY_MIDDLE);
-    ring_buzzer_for_ms(10);
-    // loop until the mouse runs for desired length
-    while( get_path_length() < length_mm ){
-        wait_ms(20);
-    }
-    ring_buzzer_for_ms(10);
-    brake();
+    current_motion = createMotion(10000, 0, 0, length_mm, VELOCITY_MIDDLE, 0);
+    enable_motors();
 }
 
 void run_straight(void)
 {
-    set_target_velocity(VELOCITY_LOW);
+    current_motion = createMotion(10000, 0,0,10000, VELOCITY_MIDDLE, 0);
     enable_motors();
 }
 

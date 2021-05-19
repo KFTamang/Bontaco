@@ -30,56 +30,64 @@ BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_DEPFILESC0="$(TC_INSTALL_DIR)\bin\libi
 
 BONTACO_RELEASE_RX_CC_COMPILER02_EXE=ccrx.exe
 BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC0="..\Bontaco\Release\Bontaco.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC0="..\Bontaco\bontaco_init.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_led.h" "..\Bontaco\bontaco_test.h" \
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC0="..\Bontaco\bontaco_main.h" "..\Bontaco\bontaco_init.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_led.h" \
+	"..\Bontaco\bontaco_test.h" "..\Bontaco\bontaco_util.h" "$(TC_INSTALL_DIR)\include\stdarg.h" \
+	"$(TC_INSTALL_DIR)\include\macro.h" "..\Bontaco\bontaco_photosensor.h" "..\Bontaco\bontaco_timer.h" \
+	"..\Bontaco\bontaco_battery_watch.h" "..\Bontaco\bontaco_encoder.h" "..\Bontaco\bontaco_common.h" \
+	"..\Bontaco\bontaco_motor_pwm.h" "..\Bontaco\bontaco_buzzer.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC1="..\Bontaco\Release\Bontaco_main.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC1="..\Bontaco\bontaco_init.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_led.h" "..\Bontaco\bontaco_test.h" \
 	"..\Bontaco\bontaco_util.h" "$(TC_INSTALL_DIR)\include\stdarg.h" "$(TC_INSTALL_DIR)\include\macro.h" \
 	"..\Bontaco\bontaco_photosensor.h" "..\Bontaco\bontaco_timer.h" "..\Bontaco\bontaco_battery_watch.h" \
 	"..\Bontaco\bontaco_encoder.h" "..\Bontaco\bontaco_common.h" "..\Bontaco\bontaco_motor_pwm.h" \
-	"..\Bontaco\bontaco_buzzer.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC1="..\Bontaco\Release\bontaco_battery_watch.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC1="..\Bontaco\bontaco_battery_watch.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_led.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC2="..\Bontaco\Release\bontaco_buzzer.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC2="..\Bontaco\bontaco_buzzer.h" "..\Bontaco\iodefine.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC3="..\Bontaco\Release\bontaco_drive.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC3="..\Bontaco\bontaco_drive.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_common.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC4="..\Bontaco\Release\bontaco_encoder.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC4="..\Bontaco\bontaco_encoder.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_common.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC5="..\Bontaco\Release\bontaco_init.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC5="..\Bontaco\bontaco_init.h" "..\Bontaco\iodefine.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC6="..\Bontaco\Release\bontaco_interrupt.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC6="..\Bontaco\bontaco_interrupt.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_led.h" \
-	"..\Bontaco\bontaco_photosensor.h" "..\Bontaco\bontaco_timer.h" "..\Bontaco\bontaco_buzzer.h" \
-	"..\Bontaco\bontaco_drive.h" "..\Bontaco\bontaco_common.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC7="..\Bontaco\Release\bontaco_led.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC7="..\Bontaco\bontaco_led.h" "..\Bontaco\iodefine.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC8="..\Bontaco\Release\bontaco_motor_pwm.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC8="..\Bontaco\bontaco_motor_pwm.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_common.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC9="..\Bontaco\Release\bontaco_photosensor.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC9="..\Bontaco\bontaco_photosensor.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_led.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC10="..\Bontaco\Release\bontaco_test.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC10="..\Bontaco\bontaco_test.h" "..\Bontaco\bontaco_led.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_util.h" \
+	"..\Bontaco\bontaco_buzzer.h" "..\Bontaco\bontaco_flag.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC2="..\Bontaco\Release\bontaco_battery_watch.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC2="..\Bontaco\bontaco_battery_watch.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_led.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC3="..\Bontaco\Release\bontaco_buzzer.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC3="..\Bontaco\bontaco_buzzer.h" "..\Bontaco\iodefine.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC4="..\Bontaco\Release\bontaco_drive.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC4="..\Bontaco\bontaco_drive.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_common.h" \
+	"..\Bontaco\bontaco_encoder.h" "..\Bontaco\bontaco_battery_watch.h" "..\Bontaco\bontaco_led.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC5="..\Bontaco\Release\bontaco_encoder.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC5="..\Bontaco\bontaco_encoder.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_common.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC6="..\Bontaco\Release\bontaco_flag.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC6="..\Bontaco\bontaco_flag.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC7="..\Bontaco\Release\bontaco_init.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC7="..\Bontaco\bontaco_init.h" "..\Bontaco\iodefine.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC8="..\Bontaco\Release\bontaco_interrupt.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC8="..\Bontaco\bontaco_interrupt.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_led.h" \
+	"..\Bontaco\bontaco_flag.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC9="..\Bontaco\Release\bontaco_led.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC9="..\Bontaco\bontaco_led.h" "..\Bontaco\iodefine.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC10="..\Bontaco\Release\bontaco_motor_pwm.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC10="..\Bontaco\bontaco_motor_pwm.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_common.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC11="..\Bontaco\Release\bontaco_photosensor.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC11="..\Bontaco\bontaco_photosensor.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_led.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC12="..\Bontaco\Release\bontaco_test.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC12="..\Bontaco\bontaco_test.h" "..\Bontaco\bontaco_led.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_util.h" \
 	"$(TC_INSTALL_DIR)\include\stdarg.h" "$(TC_INSTALL_DIR)\include\macro.h" "..\Bontaco\bontaco_photosensor.h" \
 	"..\Bontaco\bontaco_timer.h" "..\Bontaco\bontaco_battery_watch.h" "..\Bontaco\bontaco_encoder.h" \
 	"..\Bontaco\bontaco_common.h" "..\Bontaco\bontaco_motor_pwm.h" "..\Bontaco\bontaco_buzzer.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC11="..\Bontaco\Release\bontaco_timer.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC11="..\Bontaco\bontaco_timer.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC12="..\Bontaco\Release\bontaco_util.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC12="..\Bontaco\bontaco_util.h" "$(TC_INSTALL_DIR)\include\stdarg.h" "$(TC_INSTALL_DIR)\include\macro.h" \
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC13="..\Bontaco\Release\bontaco_timer.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC13="..\Bontaco\bontaco_timer.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC14="..\Bontaco\Release\bontaco_util.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC14="..\Bontaco\bontaco_util.h" "$(TC_INSTALL_DIR)\include\stdarg.h" "$(TC_INSTALL_DIR)\include\macro.h" \
 	"..\Bontaco\iodefine.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC13="..\Bontaco\Release\dbsct.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC13="..\Bontaco\typedefine.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC14="..\Bontaco\Release\intprg.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC14="$(TC_INSTALL_DIR)\include\machine.h" "$(TC_INSTALL_DIR)\include\macro.h" "$(TC_INSTALL_DIR)\include\builtin.h" \
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC15="..\Bontaco\Release\dbsct.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC15="..\Bontaco\typedefine.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC16="..\Bontaco\Release\intprg.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC16="$(TC_INSTALL_DIR)\include\machine.h" "$(TC_INSTALL_DIR)\include\macro.h" "$(TC_INSTALL_DIR)\include\builtin.h" \
 	"..\Bontaco\vect.h" "..\Bontaco\bontaco_interrupt.h" "..\Bontaco\iodefine.h" "..\Bontaco\bontaco_led.h" \
 	"..\Bontaco\bontaco_buzzer.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC15="..\Bontaco\Release\resetprg.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC15="$(TC_INSTALL_DIR)\include\machine.h" "$(TC_INSTALL_DIR)\include\macro.h" "$(TC_INSTALL_DIR)\include\builtin.h" \
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC17="..\Bontaco\Release\resetprg.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC17="$(TC_INSTALL_DIR)\include\machine.h" "$(TC_INSTALL_DIR)\include\macro.h" "$(TC_INSTALL_DIR)\include\builtin.h" \
 	"$(TC_INSTALL_DIR)\include\_h_c_lib.h" "..\Bontaco\typedefine.h" "..\Bontaco\stacksct.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC16="..\Bontaco\Release\sbrk.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC16="$(TC_INSTALL_DIR)\include\stddef.h" "$(TC_INSTALL_DIR)\include\macro.h" "$(TC_INSTALL_DIR)\include\sys\yvals.h" \
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC18="..\Bontaco\Release\sbrk.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC18="$(TC_INSTALL_DIR)\include\stddef.h" "$(TC_INSTALL_DIR)\include\macro.h" "$(TC_INSTALL_DIR)\include\sys\yvals.h" \
 	"$(TC_INSTALL_DIR)\include\stdarg.h" "$(TC_INSTALL_DIR)\include\errno.h" "$(TC_INSTALL_DIR)\include\stdio.h" \
 	"..\Bontaco\typedefine.h" "..\Bontaco\sbrk.h"
-BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC17="..\Bontaco\Release\vecttbl.obj"
-BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC17="..\Bontaco\vect.h"
+BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC19="..\Bontaco\Release\vecttbl.obj"
+BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC19="..\Bontaco\vect.h"
 
 # Renesas RX Assembler03 phase
 
@@ -90,11 +98,12 @@ BONTACO_RELEASE_RX_ASSEMBLER03_EXE=asrx.exe
 BONTACO_RELEASE_OPTLINKER04_EXE=LnkSpawn.exe
 BONTACO_RELEASE_OPTLINKER04_INFILESC0="..\Bontaco\Release\Bontaco.lib" "..\Bontaco\Release\Bontaco.obj" "..\Bontaco\Release\bontaco_battery_watch.obj" \
 	"..\Bontaco\Release\bontaco_buzzer.obj" "..\Bontaco\Release\bontaco_drive.obj" "..\Bontaco\Release\bontaco_encoder.obj" \
-	"..\Bontaco\Release\bontaco_init.obj" "..\Bontaco\Release\bontaco_interrupt.obj" \
-	"..\Bontaco\Release\bontaco_led.obj" "..\Bontaco\Release\bontaco_motor_pwm.obj" "..\Bontaco\Release\bontaco_photosensor.obj" \
-	"..\Bontaco\Release\bontaco_test.obj" "..\Bontaco\Release\bontaco_timer.obj" "..\Bontaco\Release\bontaco_util.obj" \
-	"..\Bontaco\Release\dbsct.obj" "..\Bontaco\Release\intprg.obj" "..\Bontaco\Release\resetprg.obj" \
-	"..\Bontaco\Release\sbrk.obj" "..\Bontaco\Release\vecttbl.obj"
+	"..\Bontaco\Release\bontaco_flag.obj" "..\Bontaco\Release\bontaco_init.obj" "..\Bontaco\Release\bontaco_interrupt.obj" \
+	"..\Bontaco\Release\bontaco_led.obj" "..\Bontaco\Release\Bontaco_main.obj" "..\Bontaco\Release\bontaco_motor_pwm.obj" \
+	"..\Bontaco\Release\bontaco_photosensor.obj" "..\Bontaco\Release\bontaco_test.obj" \
+	"..\Bontaco\Release\bontaco_timer.obj" "..\Bontaco\Release\bontaco_util.obj" "..\Bontaco\Release\dbsct.obj" \
+	"..\Bontaco\Release\intprg.obj" "..\Bontaco\Release\resetprg.obj" "..\Bontaco\Release\sbrk.obj" \
+	"..\Bontaco\Release\vecttbl.obj"
 BONTACO_RELEASE_OPTLINKER04_OUTFILESC0="..\Bontaco\Release\Bontaco.mot" "..\Bontaco\Release\Bontaco.abs" "..\Bontaco\Release\Bontaco.map"
 
 #######################
@@ -120,6 +129,8 @@ ALL:	BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_ENVC0 \
 	$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC15) \
 	$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC16) \
 	$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC17) \
+	$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC18) \
+	$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC19) \
 	$(BONTACO_RELEASE_OPTLINKER04_OUTFILESC0)
 
 ####################
@@ -156,7 +167,16 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC0) : "..\Bontaco\Bontaco.c" $(BONTAC
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC1) : "..\Bontaco\bontaco_battery_watch.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC1)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC1) : "..\Bontaco\Bontaco_main.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC1)
+	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
+-cpu=rx200
+-lang=c
+-output=obj="..\Bontaco\Release\Bontaco_main.obj"
+"..\Bontaco\Bontaco_main.c"
+-nologo
+<<
+
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC2) : "..\Bontaco\bontaco_battery_watch.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC2)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -165,7 +185,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC1) : "..\Bontaco\bontaco_battery_wat
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC2) : "..\Bontaco\bontaco_buzzer.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC2)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC3) : "..\Bontaco\bontaco_buzzer.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC3)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -174,7 +194,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC2) : "..\Bontaco\bontaco_buzzer.c" $
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC3) : "..\Bontaco\bontaco_drive.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC3)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC4) : "..\Bontaco\bontaco_drive.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC4)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -183,7 +203,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC3) : "..\Bontaco\bontaco_drive.c" $(
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC4) : "..\Bontaco\bontaco_encoder.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC4)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC5) : "..\Bontaco\bontaco_encoder.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC5)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -192,7 +212,16 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC4) : "..\Bontaco\bontaco_encoder.c" 
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC5) : "..\Bontaco\bontaco_init.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC5)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC6) : "..\Bontaco\bontaco_flag.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC6)
+	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
+-cpu=rx200
+-lang=c
+-output=obj="..\Bontaco\Release\bontaco_flag.obj"
+"..\Bontaco\bontaco_flag.c"
+-nologo
+<<
+
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC7) : "..\Bontaco\bontaco_init.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC7)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -201,7 +230,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC5) : "..\Bontaco\bontaco_init.c" $(B
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC6) : "..\Bontaco\bontaco_interrupt.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC6)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC8) : "..\Bontaco\bontaco_interrupt.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC8)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -210,7 +239,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC6) : "..\Bontaco\bontaco_interrupt.c
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC7) : "..\Bontaco\bontaco_led.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC7)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC9) : "..\Bontaco\bontaco_led.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC9)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -219,7 +248,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC7) : "..\Bontaco\bontaco_led.c" $(BO
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC8) : "..\Bontaco\bontaco_motor_pwm.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC8)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC10) : "..\Bontaco\bontaco_motor_pwm.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC10)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -228,7 +257,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC8) : "..\Bontaco\bontaco_motor_pwm.c
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC9) : "..\Bontaco\bontaco_photosensor.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC9)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC11) : "..\Bontaco\bontaco_photosensor.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC11)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -237,7 +266,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC9) : "..\Bontaco\bontaco_photosensor
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC10) : "..\Bontaco\bontaco_test.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC10)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC12) : "..\Bontaco\bontaco_test.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC12)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -246,7 +275,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC10) : "..\Bontaco\bontaco_test.c" $(
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC11) : "..\Bontaco\bontaco_timer.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC11)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC13) : "..\Bontaco\bontaco_timer.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC13)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -255,7 +284,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC11) : "..\Bontaco\bontaco_timer.c" $
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC12) : "..\Bontaco\bontaco_util.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC12)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC14) : "..\Bontaco\bontaco_util.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC14)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -264,7 +293,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC12) : "..\Bontaco\bontaco_util.c" $(
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC13) : "..\Bontaco\dbsct.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC13)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC15) : "..\Bontaco\dbsct.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC15)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -273,7 +302,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC13) : "..\Bontaco\dbsct.c" $(BONTACO
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC14) : "..\Bontaco\intprg.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC14)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC16) : "..\Bontaco\intprg.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC16)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -282,7 +311,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC14) : "..\Bontaco\intprg.c" $(BONTAC
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC15) : "..\Bontaco\resetprg.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC15)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC17) : "..\Bontaco\resetprg.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC17)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -291,7 +320,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC15) : "..\Bontaco\resetprg.c" $(BONT
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC16) : "..\Bontaco\sbrk.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC16)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC18) : "..\Bontaco\sbrk.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC18)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -300,7 +329,7 @@ $(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC16) : "..\Bontaco\sbrk.c" $(BONTACO_
 -nologo
 <<
 
-$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC17) : "..\Bontaco\vecttbl.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC17)
+$(BONTACO_RELEASE_RX_CC_COMPILER02_OUTFILESC19) : "..\Bontaco\vecttbl.c" $(BONTACO_RELEASE_RX_CC_COMPILER02_DEPFILESC19)
 	"$(BONTACO_RELEASE_RX_CC_LIBRARY_GENERATOR01_EXEDIR)\$(BONTACO_RELEASE_RX_CC_COMPILER02_EXE)" -subcommand=<<
 -cpu=rx200
 -lang=c
@@ -328,9 +357,11 @@ nologo
 -input="..\Bontaco\Release\bontaco_buzzer.obj"
 -input="..\Bontaco\Release\bontaco_drive.obj"
 -input="..\Bontaco\Release\bontaco_encoder.obj"
+-input="..\Bontaco\Release\bontaco_flag.obj"
 -input="..\Bontaco\Release\bontaco_init.obj"
 -input="..\Bontaco\Release\bontaco_interrupt.obj"
 -input="..\Bontaco\Release\bontaco_led.obj"
+-input="..\Bontaco\Release\Bontaco_main.obj"
 -input="..\Bontaco\Release\bontaco_motor_pwm.obj"
 -input="..\Bontaco\Release\bontaco_photosensor.obj"
 -input="..\Bontaco\Release\bontaco_test.obj"
