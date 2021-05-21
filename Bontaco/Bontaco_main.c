@@ -52,10 +52,19 @@ static void initialization(void)
 
 	// run_straight();
 	run_straight_with_length(1000);
+	// turn_90_degree(100, CW);
 }
 
 static void handleEvent(void)
 {
+	static int count = 0;
+	if(count <9){
+		count++;
+	}else{
+		sci_printf("r:%l\r\n", get_encoder_accumulated_count(RIGHT));
+		sci_printf("l:%l\r\n", get_encoder_accumulated_count(LEFT));
+		count = 0;
+	}
 
 	if(isEndOfMotion()){
 		brake();

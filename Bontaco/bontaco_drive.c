@@ -7,9 +7,10 @@
 #define mV_PER_VELOCITY (60.0*0.470/(8.0/30.0)/Pi/25.0) //1.34649 [mV / (mm/sec)]
 #define mV_PER_ANGULAR_V (mV_PER_VELOCITY*75.0*Pi/180.0) // 1.7625 [mV / (deg/sec)]
 // #define mm_PER_COUNT_RIGHT (26.0*Pi/30.0*8.0/1024) // distance per encoder count in mm
-#define mm_PER_COUNT_RIGHT (1000.0/46262.0) // distance per encoder count in mm based on mesurement 
+#define mm_PER_COUNT_RIGHT (1000.0/46422.0) // distance per encoder count in mm based on mesurement 
+#define mm_PER_COUNT_LEFT (1000.0/44369.0) // distance per encoder count in mm based on mesurement 
 // #define mm_PER_COUNT_LEFT (26.0*Pi/30.0*8.0/1024*1.32) // distance per encoder count in mm 
-#define mm_PER_COUNT_LEFT (1000.0/34201.0) // distance per encoder count in mm based on mesurement 
+// #define mm_PER_COUNT_LEFT (1000.0/34201.0) // distance per encoder count in mm based on mesurement 
 #define deg_PER_COUNT_RIGHT (mm_PER_COUNT_RIGHT*180.0/Pi/75.0) // degree per encoder count difference (i.e. LEFT - RIGHT)
 #define deg_PER_COUNT_LEFT (mm_PER_COUNT_LEFT*180.0/Pi/75.0) // degree per encoder count difference (i.e. LEFT - RIGHT)
 #define PERIOD (0.001) // time period of drive control, 1ms
@@ -121,6 +122,7 @@ void brake(void)
     reset_velocity_parameters();
     set_target_velocity(0);
     set_target_angular_velocity(0);
+    current_motion = createMotion(0,0,0,0,0,0);
     enable_motors();
 }
 
@@ -137,12 +139,14 @@ void turn_90_degree(unsigned int radius_mm, Direction dir){
         _target_av *= -1;
     }
     current_motion = createMotion(10000, 0, 0, length_mm, VELOCITY_LOW, _target_av);
+    enable_motors();
+
 }
 
 void run_straight_with_length(int length_mm)
 {
     reset_path_length();
-    current_motion = createMotion(10000, 0, 0, length_mm, VELOCITY_MIDDLE, 0);
+    current_motion = createMotion(10000, 0, 0, length_mm, VELOCITY_LOW, 0);
     enable_motors();
 }
 
