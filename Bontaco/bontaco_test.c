@@ -97,47 +97,12 @@ void test_encoder(){
 }
 
 void test_motor(){
-	turn_on_debug_led(0);
-	turn_on_debug_led(1);
-
-	run_straight();
-
-	wait_sec(5);
-	turn_on_debug_led(2);
-
-	disable_motors();
-	turn_off_debug_led(0);
-	turn_off_debug_led(1);
-	turn_off_debug_led(2);
-
 }
 
 void test_run(){
-	// ring_buzzer_for_ms(10);
-	// wait_ms(500);
-	// ring_buzzer_for_ms(10);
-	// wait_ms(500);
-	// ring_buzzer_for_ms(10);
-	// wait_ms(500);
-	// ring_buzzer_for_ms(10);
- 	run_straight_with_length(1000);
 }
 
 void test_turn(){
-	ring_buzzer_for_ms(10);
-	wait_ms(500);
-	ring_buzzer_for_ms(10);
-	wait_ms(500);
-	ring_buzzer_for_ms(10);
-	wait_ms(500);
-	ring_buzzer_for_ms(10);
-	turn_90_degree(100, CW);
-	ring_buzzer_for_ms(10);
-	turn_90_degree(200, CCW);
-	ring_buzzer_for_ms(10);
-	turn_90_degree(300, CCW);
-	ring_buzzer_for_ms(10);
-	brake();
 }
 
 void test_buzzer(){

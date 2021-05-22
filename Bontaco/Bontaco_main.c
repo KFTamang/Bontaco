@@ -14,6 +14,7 @@
 #include "bontaco_led.h"
 #include "bontaco_test.h"
 #include "bontaco_flag.h"
+#include "bontaco_drive.h"
 
 
 static void handleEvent(void);
@@ -24,6 +25,7 @@ void Main(void);
 
 static void initialization(void)
 {
+	struct Motion motion = createMotionRunStraight(1000);
     turn_off_debug_led(0);
 	turn_off_debug_led(1);
 	turn_off_debug_led(2);
@@ -49,25 +51,29 @@ static void initialization(void)
 	// test_run();
 	// test_turn();
 	// test_buzzer();
-
-	// run_straight();
-	run_straight_with_length(1000);
-	// turn_90_degree(100, CW);
+	
+	enqueue(createMotionWait(1000));
+	enqueue(createMotionRunStraight(200));
+	enqueue(createMotion90turn(100, CW));
+	enqueue(createMotionRunStraight(100));
+	enqueue(createMotion90turn(100, CCW));
+	enqueue(createMotionRunStraight(300));
+	enqueue(createMotion90turn(200, CCW));
+	enqueue(createMotion90turn(100, CW));
+	setQueueTopToCurrentMotion();
+	enable_motors();
 }
 
 static void handleEvent(void)
 {
-	static int count = 0;
-	if(count <9){
-		count++;
-	}else{
-		sci_printf("r:%l\r\n", get_encoder_accumulated_count(RIGHT));
-		sci_printf("l:%l\r\n", get_encoder_accumulated_count(LEFT));
-		count = 0;
-	}
-
 	if(isEndOfMotion()){
-		brake();
+		if(queueIsEmpty()){
+			brake();
+		}else{
+			dequeue();
+			setQueueTopToCurrentMotion();
+			ring_buzzer_for_ms(10);
+		}
 	}
 
 }
@@ -76,11 +82,11 @@ static void constantProcess(void)
 {
 	update_encoder_diff(LEFT);
 	update_encoder_diff(RIGHT);
+	increment_timer_ms();
+	decrement_buzzer_timer();
 	execute_current_motion();
 	pid_control_velocity();
 	pid_control_angular_velocity();
-	increment_timer_ms();
-	decrement_buzzer_timer();
 	set_motor_duty_ratios();
 
 }
