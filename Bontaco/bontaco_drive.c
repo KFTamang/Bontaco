@@ -5,7 +5,7 @@
 #define VELOCITY_LOW (200) // [mm/sec], speed of exploration
 #define VELOCITY_MIDDLE (1000) // [mm/sec], speed of exploration
 #define mV_PER_VELOCITY (60.0*0.470/(8.0/30.0)/Pi/25.0) //1.34649 [mV / (mm/sec)]
-#define mV_PER_ANGULAR_V (mV_PER_VELOCITY*75.0*Pi/180.0) // 1.7625 [mV / (deg/sec)]
+#define mV_PER_ANGULAR_V (mV_PER_VELOCITY*73.0*Pi/180.0) // 1.7625 [mV / (deg/sec)]
 #define mm_PER_COUNT_RIGHT (1000.0/46422.0) // distance per encoder count in mm based on mesurement 
 #define mm_PER_COUNT_LEFT (1000.0/44369.0) // distance per encoder count in mm based on mesurement 
 #define deg_PER_COUNT_RIGHT (mm_PER_COUNT_RIGHT*180.0/Pi/75.0) // degree per encoder count difference (i.e. LEFT - RIGHT)
