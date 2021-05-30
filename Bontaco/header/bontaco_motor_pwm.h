@@ -1,8 +1,8 @@
 #ifndef BONTACO_MOTOR_PWM_H
 #define BONTACO_MOTOR_PWM_H
 
-#include "iodefine.h"
-#include "bontaco_common.h"
+#include "../iodefine.h"
+#include "../bontaco_common.h"
 
 void disable_motors();
 void eable_motors();

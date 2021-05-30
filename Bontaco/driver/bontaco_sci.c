@@ -1,6 +1,6 @@
 #include <stdarg.h>
 #include "sci.h"
-#include "iodefine.h"
+#include "../iodefine.h"
 
 char sci_put_1byte(unsigned char c){
 	unsigned long i=0;

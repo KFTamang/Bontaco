@@ -12,15 +12,13 @@
                   
 #include "bontaco_init.h"
 #include "bontaco_led.h"
-#include "bontaco_test.h"
-#include "bontaco_flag.h"
+#include "bontaco_sync.h"
 #include "bontaco_drive.h"
 
 
 static void handleEvent(void);
 static void constantProcess(void);
 static void main_loop(void);
-static void sync_1ms(void);
 void Main(void);
 
 static void initialization(void)
@@ -39,19 +37,7 @@ static void initialization(void)
 	reset_encoder_count(RIGHT);
 
 	check_battery();
-	
-	// test_debug_led();
-	// test_mode_led();
-	// test_display();
-	// test_sci();
-	// test_sensor();
-	// test_battery_watch(); 
-	// test_encoder();
-	// test_motor();
-	// test_run();
-	// test_turn();
-	// test_buzzer();
-	
+
 	enqueue(createMotionWait(1000));
 	enqueue(createMotionRunStraight(200));
 	enqueue(createMotion90turn(100, CW));
@@ -101,19 +87,6 @@ static void main_loop(void)
 		constantProcess();
 	}
 
-}
-
-static void sync_1ms(void)
-{
-	// check if 1ms flag is already set, i.e. loop process is not in time!
-	if( getFlag() ){
-		turn_on_debug_led(0);
-		turn_on_debug_led(1);
-		turn_on_debug_led(2);
-	}
-	// wait for 1ms flag to set
-	while( !getFlag() );
-	clearFlag();
 }
 
 void Main(void)
