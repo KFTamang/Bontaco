@@ -1,3 +1,4 @@
 .vscode/*
 Bontaco/debug/*
 Bontaco/release/*
+*.o
