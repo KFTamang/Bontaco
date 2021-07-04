@@ -2,3 +2,6 @@
 Bontaco/debug/*
 Bontaco/release/*
 *.o
+Bontaco/sim/plot.png
+Bontaco/sim/plot.txt
+Bontaco/sim/sim
