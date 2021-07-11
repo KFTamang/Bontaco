@@ -9,12 +9,12 @@
 /*  NOTE:THIS IS A TYPICAL EXAMPLE.                                    */
 /*                                                                     */
 /***********************************************************************/
-                  
+
 #include "bontaco_init.h"
 #include "bontaco_led.h"
 #include "bontaco_sync.h"
 #include "bontaco_drive.h"
-
+#include "bontaco_util.h"
 
 static void handleEvent(void);
 static void constantProcess(void);
@@ -24,11 +24,11 @@ void Main(void);
 static void initialization(void)
 {
 	struct Motion motion = createMotionRunStraight(1000);
-    turn_off_debug_led(0);
+	turn_off_debug_led(0);
 	turn_off_debug_led(1);
 	turn_off_debug_led(2);
-	turn_off_mode_led(0);	
-	turn_off_mode_led(1);	
+	turn_off_mode_led(0);
+	turn_off_mode_led(1);
 
 	display_7seg(10);
 
@@ -37,6 +37,8 @@ static void initialization(void)
 	reset_encoder_count(RIGHT);
 
 	check_battery();
+
+	sci_printf("Bontaco Initialized\n");
 
 	enqueue(createMotionWait(1000));
 	enqueue(createMotionRunStraight(200));
@@ -52,16 +54,19 @@ static void initialization(void)
 
 static void handleEvent(void)
 {
-	if(isEndOfMotion()){
-		if(queueIsEmpty()){
+	if (isEndOfMotion())
+	{
+		if (queueIsEmpty())
+		{
 			brake();
-		}else{
+		}
+		else
+		{
 			dequeue();
 			setQueueTopToCurrentMotion();
 			ring_buzzer_for_ms(10);
 		}
 	}
-
 }
 
 static void constantProcess(void)
@@ -74,19 +79,18 @@ static void constantProcess(void)
 	pid_control_velocity();
 	pid_control_angular_velocity();
 	set_motor_duty_ratios();
-
 }
 
 static void main_loop(void)
 {
-	while(1){
+	while (1)
+	{
 		sync_1ms();
 
 		handleEvent();
 
 		constantProcess();
 	}
-
 }
 
 void Main(void)
@@ -94,5 +98,4 @@ void Main(void)
 	initialization();
 
 	main_loop();
-
 }
