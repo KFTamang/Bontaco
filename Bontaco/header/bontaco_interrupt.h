@@ -3,5 +3,3 @@
 
 void mtu3_interruptA();
 void mtu3_interruptB();
-
-

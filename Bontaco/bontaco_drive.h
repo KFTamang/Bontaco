@@ -3,8 +3,9 @@
 #include "bontaco_encoder.h"
 #include "bontaco_battery_watch.h"
 
-struct Motion{
-    unsigned int current_time_ms;
+struct Motion
+{
+	unsigned int current_time_ms;
 	unsigned int duration_ms;
 	float acceralation;
 	float ang_acceralation;

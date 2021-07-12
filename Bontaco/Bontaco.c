@@ -9,7 +9,7 @@
 /*  NOTE:THIS IS A TYPICAL EXAMPLE.                                    */
 /*                                                                     */
 /***********************************************************************/
-                  
+
 #include "bontaco_main.h"
 
 //#include "typedefine.h"
@@ -20,24 +20,25 @@
 
 void main(void);
 #ifdef __cplusplus
-extern "C" {
-void abort(void);
+extern "C"
+{
+	void abort(void);
 }
 #endif
 
 void main(void)
 {
 	init_rx220();
-	
+
 	Main();
 
-	while(1);
-
+	while (1)
+	{
+	}
 }
 
 #ifdef __cplusplus
 void abort(void)
 {
-
 }
 #endif

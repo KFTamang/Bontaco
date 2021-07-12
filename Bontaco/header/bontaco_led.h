@@ -25,5 +25,3 @@ void turn_off_mode_led(int);
 void display_7seg(int);
 
 #endif // BONTACO_LED_H
-
-

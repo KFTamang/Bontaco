@@ -12,9 +12,7 @@ int getFlag(void)
     return flag;
 }
 
-
 void clearFlag(void)
 {
     flag = 0;
 }
-

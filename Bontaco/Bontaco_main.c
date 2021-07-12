@@ -41,13 +41,13 @@ static void initialization(void)
 	sci_printf("Bontaco Initialized\n");
 
 	enqueue(createMotionWait(1000));
-	enqueue(createMotionRunStraight(200));
-	enqueue(createMotion90turn(100, CW));
-	enqueue(createMotionRunStraight(100));
-	enqueue(createMotion90turn(100, CCW));
-	enqueue(createMotionRunStraight(300));
-	enqueue(createMotion90turn(200, CCW));
-	enqueue(createMotion90turn(100, CW));
+	enqueue(createMotionRunStraight(1000));
+	// enqueue(createMotion90turn(100, CW));
+	// enqueue(createMotionRunStraight(100));
+	// enqueue(createMotion90turn(100, CCW));
+	// enqueue(createMotionRunStraight(300));
+	// enqueue(createMotion90turn(200, CCW));
+	// enqueue(createMotion90turn(100, CW));
 	setQueueTopToCurrentMotion();
 	enable_motors();
 }

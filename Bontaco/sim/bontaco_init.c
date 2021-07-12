@@ -1,5 +1,5 @@
 #include "bontaco_init.h"
 
-void init_rx220(){
-
+void init_rx220()
+{
 }
