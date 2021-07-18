@@ -83,7 +83,6 @@ int get_encoder_diff(Motor motor)
 		return count_diff_right;
 		break;
 	case LEFT:
-		COUNTER_L = RESET_VALUE;
 		return count_diff_left;
 		break;
 	default:
