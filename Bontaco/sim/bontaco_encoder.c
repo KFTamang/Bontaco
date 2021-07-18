@@ -1,7 +1,6 @@
 #include "bontaco_encoder.h"
 
-#define Pi (3.14159265359)
-#define MAX_ENCODER_COUNT (1024.0 * 30 / 8 * 1000 / 26 / Pi)
+#include "constants.h"
 
 extern const double dt;
 extern double velocity;
@@ -69,12 +68,12 @@ void update_encoder_diff(Motor motor)
 {
     if (motor == RIGHT)
     {
-        count_right_diff = duty_right * MAX_ENCODER_COUNT;
+        count_right_diff = (velocity + a_velocity * WIDTH / 2) * MAX_ENCODER_COUNT;
         count_right += count_right_diff;
     }
     else if (motor == LEFT)
     {
-        count_left_diff = duty_left * MAX_ENCODER_COUNT;
+        count_left_diff = (velocity - a_velocity * WIDTH / 2) * MAX_ENCODER_COUNT;
         count_left += count_left_diff;
     }
     else

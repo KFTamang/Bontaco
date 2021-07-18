@@ -3,8 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define Pi (3.14159265359)
-#define MAX_ENCODER_COUNT (1024.0 * 30 / 8 * 1000 / 26 / Pi)
+#include "constants.h"
 
 const float dt = 0.001;
 float velocity = 0;
@@ -28,8 +27,8 @@ void sync_1ms(void)
     {
         count++;
     }
-    acce = (duty_left + duty_right) / 2;
-    // a_acce = duty_left - duty_right;
+    acce = MASS * (duty_left + duty_right) / 2;
+    a_acce = duty_left - duty_right;
     velocity += dt * acce;
     a_velocity += dt * a_acce;
     direction += dt * a_velocity;
