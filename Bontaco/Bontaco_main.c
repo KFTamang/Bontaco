@@ -42,8 +42,7 @@ static void initialization(void)
 	sci_printf("Bontaco Initialized\n");
 
 	enqueue(createMotionWait(1000));
-	enqueue(createMotionWait(10000));
-	// enqueue(createMotionRunStraight(1000));
+	enqueue(createMotionRunStraight(1000));
 	// enqueue(createMotion90turn(100, CW));
 	// enqueue(createMotionRunStraight(100));
 	// enqueue(createMotion90turn(100, CCW));

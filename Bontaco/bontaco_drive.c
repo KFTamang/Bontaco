@@ -8,7 +8,7 @@
 #define mV_PER_VELOCITY (60.0 * 0.470 / (8.0 / 30.0) / Pi / 25.0)          // 1.34649 [mV / (mm/sec)]
 #define mV_PER_ANGULAR_V (mV_PER_VELOCITY * BODY_WIDTH * Pi / 180.0)       // 1.7625 [mV / (deg/sec)]
 #define mm_PER_COUNT_RIGHT (1000.0 / 46422.0)                              // distance per encoder count in mm based on mesurement
-#define mm_PER_COUNT_LEFT (1000.0 / 43369.0)                               // distance per encoder count in mm based on mesurement
+#define mm_PER_COUNT_LEFT (1000.0 / 46422.0)                               // distance per encoder count in mm based on mesurement
 #define deg_PER_COUNT_RIGHT (mm_PER_COUNT_RIGHT * 180.0 / Pi / BODY_WIDTH) // degree per encoder count difference (i.e. LEFT - RIGHT)
 #define deg_PER_COUNT_LEFT (mm_PER_COUNT_LEFT * 180.0 / Pi / BODY_WIDTH)   // degree per encoder count difference (i.e. LEFT - RIGHT)
 #define PERIOD (0.001)                                                     // time period of drive control, 1ms
