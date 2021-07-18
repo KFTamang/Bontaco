@@ -42,6 +42,7 @@ static void initialization(void)
 	sci_printf("Bontaco Initialized\n");
 
 	enqueue(createMotionWait(1000));
+	enqueue(createMotionWait(10000));
 	// enqueue(createMotionRunStraight(1000));
 	// enqueue(createMotion90turn(100, CW));
 	// enqueue(createMotionRunStraight(100));
@@ -86,7 +87,7 @@ static void constantProcess(void)
 	update_encoder_diff(RIGHT);
 	increment_timer_ms();
 	decrement_buzzer_timer();
-	// control_motion();
+	control_motion();
 }
 
 static void main_loop(void)
