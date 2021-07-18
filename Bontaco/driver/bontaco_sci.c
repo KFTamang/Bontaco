@@ -7,7 +7,6 @@
 static char tx_buffer[TX_BUF_SIZE];
 static unsigned int string_end = 0;
 static unsigned int current_pos = 0;
-static char is_busy = 0;
 
 static char set_tx_buf_1byte(unsigned char c)
 {
@@ -25,7 +24,7 @@ static char set_tx_buf_1byte(unsigned char c)
 
 char sci_put_1byte_from_buffer(void)
 {
-	if (!is_busy && SCI1.SSR.BIT.TEND == 1)
+	if (SCI1.SSR.BIT.TEND == 1)
 	{
 		if (current_pos < string_end)
 		{
@@ -340,11 +339,6 @@ short sci_printf(char *str, ...)
 {
 	va_list ap;
 	char *ptr;
-
-	if (is_busy)
-	{
-		return 0;
-	}
 
 	ptr = str;
 
