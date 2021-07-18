@@ -2,7 +2,7 @@
 #define BONTACO_TEST_H
 
 #include "bontaco_led.h"
-#include "bontaco_util.h"
+#include "bontaco_sci.h"
 #include "bontaco_photosensor.h"
 #include "bontaco_timer.h"
 #include "bontaco_battery_watch.h"

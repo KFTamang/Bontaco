@@ -165,8 +165,8 @@ void init_rx220()
 	MTU0.TGRB = 32000 / 16 * 10 / 40 / 2 - 1; // 32000/16/8-1
 
 	// permit interrupt by TGRB
-	IEN(MTU0, TGIB0) = 1;
-	IPR(MTU0, TGIB0) = 15;
+	IEN(MTU0, TGIB0) = 1;  // enable interupt
+	IPR(MTU0, TGIB0) = 15; // priority 15
 
 	// start timer
 	MTU.TSTR.BIT.CST0 = 1;
@@ -181,6 +181,9 @@ void init_rx220()
 	SCI1.SEMR.BIT.ABCS = 1; // 1bit = 8clock cycle
 	SCI1.BRR = 51;			// baudrate 38462bps
 	SCI1.SCR.BYTE = 0x20;	// TE=1
+	IEN(SCI1, TXI1);		// enable TXI interupt  (occuring when TDR is set into TSR)
+	SCI1.SCR.BIT.TIE = 1;	// transmit interupt enable
+	IPR(SCI1, TXI1) = 15;	// priority 15
 
 	// AD converter
 	MSTP(S12AD) = 0;		   // release standby

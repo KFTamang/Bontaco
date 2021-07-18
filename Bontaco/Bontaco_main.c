@@ -14,6 +14,7 @@
 #include "bontaco_led.h"
 #include "bontaco_sync.h"
 #include "bontaco_drive.h"
+#include "bontaco_sci.h"
 #include "bontaco_util.h"
 
 static void handleEvent(void);
@@ -41,7 +42,7 @@ static void initialization(void)
 	sci_printf("Bontaco Initialized\n");
 
 	enqueue(createMotionWait(1000));
-	enqueue(createMotionRunStraight(1000));
+	// enqueue(createMotionRunStraight(1000));
 	// enqueue(createMotion90turn(100, CW));
 	// enqueue(createMotionRunStraight(100));
 	// enqueue(createMotion90turn(100, CCW));
@@ -67,6 +68,16 @@ static void handleEvent(void)
 			ring_buzzer_for_ms(10);
 		}
 	}
+
+	sci_printf("%d %d\r\n", get_encoder_accumulated_count(RIGHT), get_encoder_accumulated_count(LEFT));
+}
+
+static void control_motion(void)
+{
+	execute_current_motion();
+	pid_control_velocity();
+	pid_control_angular_velocity();
+	set_motor_duty_ratios();
 }
 
 static void constantProcess(void)
@@ -75,10 +86,7 @@ static void constantProcess(void)
 	update_encoder_diff(RIGHT);
 	increment_timer_ms();
 	decrement_buzzer_timer();
-	execute_current_motion();
-	pid_control_velocity();
-	pid_control_angular_velocity();
-	set_motor_duty_ratios();
+	// control_motion();
 }
 
 static void main_loop(void)

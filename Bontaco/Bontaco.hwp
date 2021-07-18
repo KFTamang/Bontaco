@@ -133,6 +133,7 @@
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_led.c" "User" "C source file" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_motor_pwm.c" "User" "C source file" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_photosensor.c" "User" "C source file" 2 
+"C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_sci.c" "User" "C source file" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_sync.c" "User" "C source file" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_util.c" "User" "C source file" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\header\bontaco_battery_watch.h" "User" "C header file" 2 
@@ -145,7 +146,6 @@
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\header\bontaco_photosensor.h" "User" "C header file" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\header\bontaco_sci.h" "User" "C header file" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\header\bontaco_sync.h" "User" "C header file" 2 
-"C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\header\bontaco_util.h" "User" "C header file" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\intprg.c" "User" "C source file" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\resetprg.c" "User" "C source file" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\sbrk.c" "User" "C source file" 2 
@@ -166,7 +166,7 @@
 "DefaultSession" "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\DefaultSession.hsf" 0 
 [GENERAL_DATA_SESSION_DefaultSession]
 [OPTIONS_Debug_Renesas OptLinker]
-"Single Shot" "05737339b6557d10" 5 
+"Single Shot" "032984d43fb77d10" 5 
 [OPTIONS_Debug_Renesas RX Assembler]
 "Assembly source file" "03e174b5be4b6d10" 4 
 "Linkage symbol file" "03e174b5be4b6d10" 4 
@@ -186,8 +186,9 @@
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_led.c" "0294733fa6557d10" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_motor_pwm.c" "0294733fa6557d10" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_photosensor.c" "0294733fa6557d10" 2 
+"C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_sci.c" "04971b3e2fb77d10" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_sync.c" "0294733fa6557d10" 2 
-"C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_util.c" "0294733fa6557d10" 2 
+"C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_util.c" "02af54d43fb77d10" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\intprg.c" "0294733fa6557d10" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\resetprg.c" "0294733fa6557d10" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\sbrk.c" "0294733fa6557d10" 2 
@@ -195,7 +196,7 @@
 [OPTIONS_Debug_Renesas RX C/C++ Library Generator]
 "Single Shot" "03e174b5be4b6d10" 1 
 [OPTIONS_Debug_Renesas RX Configurator]
-"Single Shot" "0fbd3339b6557d10" 6 
+"Single Shot" "02af54d43fb77d10" 6 
 [OPTIONS_Debug]
 "" 0 
 "[S|OUTPUTPATH|^"$(CONFIGDIR)\$(PROJECTNAME).lib^"] [V|VERSION|1] [S|CPU|RX200] [S|ENDIAN|LITTLE] [S|ROUND|NEAREST] [S|DBL_SIZE|4] [B|SIGNED_CHAR|0] [B|SIGNED_BITFIELD|0] [S|BIT_ORDER|RIGHT] [S|FINT_REGISTER|0] [S|BRANCH|24] [S|LANG|C99] [B|RUNTIME|1] [B|CTYPE|1] [B|MATH|1] [B|MATHF|0] [B|STDARG|1] [B|STDIO|1] [B|STDLIB|1] [B|STRING|1] [B|IOS|0] [B|NEW|1] [B|COMPLEX|0] [B|CPPSTRING|0] [B|C99_COMPLEX|0] [B|FENV|0] [B|INTTYPES|0] [B|WCHAR|0] [B|WCTYPE|0] [S|MODE|BUILD/CHANGED]" 1 
@@ -210,7 +211,7 @@
 [LINKAGE_ORDER_Debug]
 [GENERAL_DATA_CONFIGURATION_Debug]
 [OPTIONS_Release_Renesas OptLinker]
-"Single Shot" "05737339b6557d10" 5 
+"Single Shot" "032984d43fb77d10" 5 
 [OPTIONS_Release_Renesas RX Assembler]
 "Assembly source file" "03e174b5be4b6d10" 4 
 "Linkage symbol file" "03e174b5be4b6d10" 4 
@@ -230,8 +231,9 @@
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_led.c" "01d73e2176557d10" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_motor_pwm.c" "01d73e2176557d10" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_photosensor.c" "01d73e2176557d10" 2 
+"C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_sci.c" "04971b3e2fb77d10" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_sync.c" "01d73e2176557d10" 2 
-"C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_util.c" "01d73e2176557d10" 2 
+"C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\driver\bontaco_util.c" "02af54d43fb77d10" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\intprg.c" "01d73e2176557d10" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\resetprg.c" "01d73e2176557d10" 2 
 "C:\Users\Kento\Documents\micromouse\Bontaco\Bontaco\sbrk.c" "01d73e2176557d10" 2 
@@ -239,7 +241,7 @@
 [OPTIONS_Release_Renesas RX C/C++ Library Generator]
 "Single Shot" "03e174b5be4b6d10" 1 
 [OPTIONS_Release_Renesas RX Configurator]
-"Single Shot" "0fbd3339b6557d10" 6 
+"Single Shot" "02af54d43fb77d10" 6 
 [OPTIONS_Release]
 "" 0 
 "[S|OUTPUTPATH|^"$(CONFIGDIR)\$(PROJECTNAME).lib^"] [V|VERSION|1] [S|CPU|RX200] [S|ENDIAN|LITTLE] [S|ROUND|NEAREST] [S|DBL_SIZE|4] [B|SIGNED_CHAR|0] [B|SIGNED_BITFIELD|0] [S|BIT_ORDER|RIGHT] [S|FINT_REGISTER|0] [S|BRANCH|24] [S|LANG|C99] [B|RUNTIME|1] [B|CTYPE|1] [B|MATH|1] [B|MATHF|0] [B|STDARG|1] [B|STDIO|1] [B|STDLIB|1] [B|STRING|1] [B|IOS|0] [B|NEW|1] [B|COMPLEX|0] [B|CPPSTRING|0] [B|C99_COMPLEX|0] [B|FENV|0] [B|INTTYPES|0] [B|WCHAR|0] [B|WCTYPE|0] [S|MODE|BUILD/CHANGED]" 1 

@@ -1,8 +1,7 @@
-#ifndef __SCI_HEADER__
-#define __SCI_HEADER__
+#ifndef BONTACO_SCI_HEADER
+#define BONTACO_SCI_HEADER
 
-char sci_put_1byte(unsigned char c);
-static char *parseFormat(char *str, void *value);
+char sci_put_1byte_from_buffer(void);
 short sci_printf(char *str, ...);
 
 #endif

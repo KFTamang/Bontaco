@@ -1,8 +1,49 @@
 #include <stdarg.h>
-#include "sci.h"
+#include "bontaco_sci.h"
 #include "../iodefine.h"
 
-char sci_put_1byte(unsigned char c)
+#define TX_BUF_SIZE (1000)
+
+static char tx_buffer[TX_BUF_SIZE];
+static unsigned int string_end = 0;
+static unsigned int current_pos = 0;
+static char is_busy = 0;
+
+static char set_tx_buf_1byte(unsigned char c)
+{
+	if (string_end < TX_BUF_SIZE)
+	{
+		tx_buffer[string_end] = c;
+		string_end++;
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+char sci_put_1byte_from_buffer(void)
+{
+	if (!is_busy && SCI1.SSR.BIT.TEND == 1)
+	{
+		if (current_pos < string_end)
+		{
+			SCI1.TDR = tx_buffer[current_pos]; // 送信バッファにデータセット
+			current_pos++;
+		}
+		else
+		{
+			// バッファ送信終了、バッファリセット
+			current_pos = 0;
+			string_end = 0;
+		}
+		return 1;
+	}
+	return 0;
+}
+
+static char sci_put_1byte(unsigned char c)
 {
 	unsigned long i = 0;
 	unsigned short flag = 0;
@@ -36,7 +77,7 @@ short SCI_putstr(char *str)
 	// 終端コードまで送信
 	while (*str)
 	{
-		if (!sci_put_1byte(*(str++)))
+		if (!set_tx_buf_1byte(*(str++)))
 		{
 			return 0;
 		}
@@ -177,20 +218,20 @@ static void printFormat(char *ptr, short order, short alignLeft, short fillZero,
 			// マイナス表示
 			if (minus)
 			{
-				sci_put_1byte('-');
+				set_tx_buf_1byte('-');
 				minus = 0;
 			}
 		}
 
 		for (i = 0; i < order; i++)
 		{
-			sci_put_1byte(pad);
+			set_tx_buf_1byte(pad);
 		}
 	}
 
 	// マイナス表示
 	if (minus)
-		sci_put_1byte('-');
+		set_tx_buf_1byte('-');
 
 	// データの表示
 	SCI_putstr(ptr);
@@ -198,7 +239,7 @@ static void printFormat(char *ptr, short order, short alignLeft, short fillZero,
 	/* 左詰め */
 	if (alignLeft)
 		for (i = 0; i < order; i++)
-			sci_put_1byte(' ');
+			set_tx_buf_1byte(' ');
 }
 
 // フォーマット変換
@@ -300,11 +341,17 @@ short sci_printf(char *str, ...)
 	va_list ap;
 	char *ptr;
 
+	if (is_busy)
+	{
+		return 0;
+	}
+
 	ptr = str;
 
 	// 可変引数の初期化
 	va_start(ap, str);
 
+	// 送信バッファに送信内容をセット
 	while (*ptr)
 	{
 		// 特殊文字
@@ -314,7 +361,7 @@ short sci_printf(char *str, ...)
 
 			if (*ptr == '%')
 			{
-				sci_put_1byte('%');
+				set_tx_buf_1byte('%');
 				ptr++;
 			}
 			else
@@ -329,10 +376,13 @@ short sci_printf(char *str, ...)
 		// 通常文字
 		else
 		{
-			sci_put_1byte(*ptr);
+			set_tx_buf_1byte(*ptr);
 			ptr++;
 		}
 	}
+	// 送信バッファから1文字送信
+	// のこりは割り込みにより自動的に送信
+	sci_put_1byte_from_buffer();
 	va_end(ap);
-	return (ptr - str); // 送信文字数
+	return (ptr - str); // 送信予定文字数
 }
